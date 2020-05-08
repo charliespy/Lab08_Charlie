@@ -1,5 +1,5 @@
 #Charlie Sun
-#5 May 2020
+#7 May 2020
 #Lab08.py
 
 def ask_for_input_A(p, l):
@@ -15,7 +15,7 @@ def ask_for_input_A(p, l):
     return p
 
 def ask_for_input_B(p, l):
-    answer = input(str(0))
+    answer = input(str(l[0]))
     if answer == 'A':
         print(l[1])
     elif answer == 'B':
@@ -48,6 +48,40 @@ def go_to_Webb(p):
     this_point = ask_for_input_A(p, l)
     return this_point
 
+def settle_down():
+    print('It \'s late July. You will become a freshman once the year starts. The school gave you guys some time to settle down before the year is kicked off.')
+    print('One day when you\'re roaming around the campus, you see a huge bear standing beside the trash.')
+    print('You are obviously very scared. What should you do?')
+    l = [
+        'Type "A" to run away or type "B" to take pictures: '
+        , '\nIn fact, the bear didn\'t spot you until you were running. It sprinted toward you and tried to kill you.'
+        , '\nYou took many awesome pictures of the bear, but just when you were about to sneak away, the bear spotted you. It sprinted toward you and tried to kill you.'
+    ]
+    ask_for_input(l)
+
+def run_away(p):
+    print('At this moment, you recalled a Youtube video you saw the other day about making bears\' voices. You decided to give it a try')
+    l = [
+        'type "A" or "B" to mimic bears\'s voice ---> A = "AHHHHHHHH", B = "RAWWWWWWW": '
+        , '\nObviously, this is not how bears talk, but you somehow shocked the bear. It stood there in amazement while you ran away as quick as you could.'
+        , '\nWell, that was not the voice of bears, but rather tigers. Bears are afriad of tigers, so is this one. You watched the bear ran away from you in amazement.'
+    ]
+    point = ask_for_input_B(p, l)
+    return point
+
+def semester_starts(p):
+    print('It has been almost a month since the bear incident happened. You guys are on your freshman retreat.')
+    print('However, just when you were going on the bus, a huge bear popped out and was walking toward the bus.')
+    print('Your advisor, Ms. Kenared, tried to calm people down but in vain. The crowd bursted into a panic.')
+    print('For some reason, someone pushed you. You fell hard on the ground, 5 feet away from the bear. What should you do now?')
+    l = [
+        'type "A" to run back to the bus or type "B" to pretend you\'re dead: '
+        , 'You ran away, but so did the crowd. Everybody thought you were gonna attract the bear toward them. Only your advisor Ms. Kenared left there with you.'
+        , 'You lied there, silently. The bear saw you as a plancon seat or something, and tried to sit on you. Luckily, Ms. Kenared sprinted toward you and saved you from the bears\' ass.'
+    ]
+    this_point = ask_for_input_B(p, l)
+    return this_point
+
 if __name__ == '__main__':
     point = 0
     name = input('Please enter your name: ')
@@ -62,4 +96,7 @@ if __name__ == '__main__':
     ask_for_input(my_list)
 
     point = go_to_Webb(point)
+    settle_down()
+    point = run_away(point)
+    point = semester_starts(point)
     print(point)
